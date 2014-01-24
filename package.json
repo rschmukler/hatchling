@@ -1,0 +1,22 @@
+{
+  "name": "hatchling",
+  "version": "0.1.0",
+  "description": "Spawn interface with a callback",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rschmukler/hatchling"
+  },
+  "keywords": [
+    "spawn"
+  ],
+  "author": "Ryan Schmukler <ryan@slingingcode.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rschmukler/hatchling/issues"
+  },
+  "homepage": "https://github.com/rschmukler/hatchling"
+}
