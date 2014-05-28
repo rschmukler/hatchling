@@ -7,8 +7,14 @@ Buffered spawn for node.
 ```js
 var spawn = require('hatchling');
 
-spawn('ps', ['aux'], function(stdout) {
+spawn('ps', ['aux'], function(err, stdout) {
   console.log('stdout');
+});
+
+// Example with invalid command options
+spawn('ls', ['-aslkj'], function(err, stderr) {
+  console.log(err);
+  console.log(stderr);
 });
 ```
 
@@ -24,4 +30,6 @@ spawn(cmd, args, options, cb)
 - `cmd` is a string of the command to execute
 - `args` is an array of arguments passed
 - `opts` is an option which is standard `process.spawn` options
-- `cb` is a function that takes stdout
+- `cb` is a function that takes `fn(err, stderr/stdout)`. If `err` is not null,
+  `stderr` will be given. Otherwise it is `stdout`. If a process exits with a
+  non-zero status code, an error will be thrown.
