@@ -21,12 +21,27 @@ module.exports = function hatchling() {
   });
   var command = spawn(cmd, args, options);
   if(callback) {
-    var result = '';
+    var stdout = '',
+        stderr = '';
+
     command.stdout.on('data', function(data) {
-      result += data.toString();
+      stdout += data.toString();
     });
+
+    command.stderr.on('data', function(data) {
+      stderr += data.toString();
+    });
+
+    command.on('error', function(err) {
+      cb(err, null);
+    });
+
     command.on('close', function(code) {
-      return callback(result);
+      if(code !== 0) {
+        var err = new Error("Process exited with non-zero status code: " + code);
+        return callback(err, stderr);
+      }
+      return callback(null, stdout);
     });
   }
 };
