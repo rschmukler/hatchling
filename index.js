@@ -44,4 +44,6 @@ module.exports = function hatchling() {
       return callback(null, stdout);
     });
   }
+
+  return command;
 };
