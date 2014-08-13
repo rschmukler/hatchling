@@ -41,7 +41,11 @@ module.exports = function hatchling() {
         var err = new Error("Process exited with non-zero status code: " + code);
         return callback(err, stderr);
       }
-      return callback(null, stdout);
+      if(callback.length == 1) {
+        return callback(stdout);
+      } else {
+        return callback(null, stdout);
+      }
     });
   }
 
