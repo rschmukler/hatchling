@@ -1,6 +1,6 @@
 {
   "name": "hatchling",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Spawn interface with a callback",
   "main": "index.js",
   "scripts": {
