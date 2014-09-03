@@ -33,7 +33,7 @@ module.exports = function hatchling() {
     });
 
     command.on('error', function(err) {
-      cb(err, null);
+      callback(err, null);
     });
 
     command.on('close', function(code) {
